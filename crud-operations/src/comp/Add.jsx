@@ -6,8 +6,8 @@ function Add() {
   let [password, setpassword] = useState("");
   let [confpassword, setconfpassword] = useState("");
   let [error, seterror] = useState("");
-  let notify = () =>
-    toast.success("User Added Successfully", {
+  let notify = (e) =>
+    toast.success(e, {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
@@ -62,12 +62,16 @@ function Add() {
       axios
         .post(`${baseurl}/regester`, data)
         .then((res) => {
-          if (res.status == 201) {
+          if (res.data.error == !true) {
             setemail("");
             setpassword("");
             setconfpassword("");
+            console.log(res);
+            notify(res.data.status);
+          }else{
+            console.log(res);
+            notifyerror(res.data.status);
           }
-          notify();
         })
         .catch((err) => {
           seterror("Some erroe occurd in database");
@@ -76,13 +80,10 @@ function Add() {
     }
   };
 
-
-
- 
   return (
     <>
       <div className="m-auto flex gap-3 flex-wrap mt-20 justify-center rounded flex-col bg-gray-700 p-4 place-content-center content-center">
-        <ToastContainer />
+        <ToastContainer className="text-white" />
         <input
           type="email"
           placeholder="Email"

@@ -27,6 +27,11 @@ function Nav() {
           Delete
         </button>
         </Link>
+        <Link to="/login">
+        <button className="border-black hover:bg-purple-700 cursor-pointer px-4 py-1 bg-purple-500 rounded text-black shadow-lg shadow-purple-500/50">
+        Login
+        </button>
+        </Link>
       </div>
     </>
   );

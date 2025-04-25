@@ -7,7 +7,7 @@ function Update() {
   let [password, setpassword] = useState("");
   let [confpassword, setconfpassword] = useState("");
   let [error, seterror] = useState("");
-  let baseurl='http://localhost:8000'
+  let baseurl = "http://localhost:8000";
 
   let notify = () =>
     toast.success("User Updated Successfully", {
@@ -85,7 +85,7 @@ function Update() {
   return (
     <>
       <div className="m-auto flex gap-3 flex-wrap mt-20 justify-center rounded flex-col bg-gray-700 p-4 place-content-center content-center">
-        <ToastContainer />
+        <ToastContainer className="text-white" />
         <input
           type="text"
           placeholder="Enter User Id"
@@ -133,12 +133,12 @@ function Update() {
           onChange={(e) => {
             setconfpassword(e.target.value);
           }}
-        />
+        />  
         <button
-          className="border-black active:bg-green-700 hover:bg-green-700 cursor-pointer px-4 py-1 bg-green-500 rounded text-black  shadow-lg shadow-green-500/50"
+          className="border-black active:bg-blue-700 hover:bg-blue-700 cursor-pointer px-4 py-1 bg-blue-500 rounded text-black  shadow-lg shadow-blue-500/50"
           onClick={handleadd}
         >
-          Add User
+          Update User
         </button>
       </div>
     </>

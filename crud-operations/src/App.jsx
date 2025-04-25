@@ -5,6 +5,7 @@ import Nav from "./comp/Nav";
 import Update from "./comp/Update";
 import Delete from "./comp/Delete";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./comp/Login";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/add" element={<Add/>} />
           <Route path="/update" element={<Update />} />
           <Route path="/delete" element={<Delete />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
     
     </div>
